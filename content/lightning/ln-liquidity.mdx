@@ -1,6 +1,6 @@
 ---
 title: Liquidity
-description: 'Balance inbound/outbound liquidity with loops, swaps, and peer management.'
+description: "Balance inbound/outbound liquidity with loops, swaps, and peer management."
 difficulty: advanced
 duration: 7 days
 objectives:
@@ -9,15 +9,15 @@ objectives:
   - Understand liquidity ads at a high level
 resources:
   - title: Lightning Loop
-    url: 'https://docs.lightning.engineering/lightning-network-tools/loop'
+    url: "https://docs.lightning.engineering/lightning-network-tools/loop"
     kind: docs
   - title: Liquidity advertisements
-    url: 'https://bitcoinops.org/en/topics/liquidity-advertisements/'
+    url: "https://bitcoinops.org/en/topics/liquidity-advertisements/"
     kind: article
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/08_routing_htlcs.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/08_routing_htlcs.asciidoc"
     kind: book
-    chapter: 'Ch. 8: Routing (liquidity context)'
+    chapter: "Ch. 8: Routing (liquidity context)"
     required: true
 reflectionPrompts:
   - Explain Liquidity to a teammate without jargon — what problem does it solve?
@@ -35,6 +35,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 Liquidity is the usable balance distribution across your channels. Capital sitting on the wrong side of a channel cannot forward or receive as needed.
 
 ## Why this matters
@@ -45,14 +46,18 @@ A node with lots of bitcoin locked but zero inbound capacity still cannot get pa
 
 A highway with all cars stuck on one side of a toll bridge. You need flows (or trucks repositioning cars) to free lanes in both directions.
 
-<Mermaid caption="Different shortages call for rebalancing, loops, or peer liquidity." chart="flowchart LR
+<Mermaid
+  caption="Different shortages call for rebalancing, loops, or peer liquidity."
+  chart="flowchart LR
     Out[Outbound heavy] --> Rebalance[Circular rebalance]
     In[Inbound heavy] --> LoopOut[Loop out / spend]
     NeedIn[Need inbound] --> Buy[Liquidity ads / peers]
-    NeedIn --> LoopIn[Loop in]" />
+    NeedIn --> LoopIn[Loop in]"
+/>
 
 <Callout type="info" title="Capital has cost">
-  Every sat locked has opportunity cost. Measure routing revenue vs capital before scaling channels.
+  Every sat locked has opportunity cost. Measure routing revenue vs capital before
+  scaling channels.
 </Callout>
 
 ## Next steps

@@ -2,10 +2,7 @@ import { buildAllRoadmapProgressSummaries } from "@/lib/progress/summary";
 import { getAllCompletedNodeSlugs } from "@/lib/progress/repository";
 import { listGithubRepositories } from "@/lib/github/store";
 import { getBuilderProfile } from "@/lib/auth/ensure-builder-profile";
-import {
-  getAllDiscoveryRepositories,
-  recommendDiscoveryRepositories,
-} from "./catalog";
+import { getAllDiscoveryRepositories, recommendDiscoveryRepositories } from "./catalog";
 import type { DiscoveryProfileContext } from "@/types/discovery";
 
 export async function loadDiscoveryProfileContext(

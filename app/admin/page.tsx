@@ -73,11 +73,7 @@ export default async function AdminOverviewPage() {
 
   // Hard ceiling so a stuck DB connection cannot burn the whole invocation.
   const [health, roleCounts, metrics] = await withTimeout(
-    Promise.all([
-      getReviewHealth(),
-      countUsersByRole(),
-      getPlatformMetrics(),
-    ]),
+    Promise.all([getReviewHealth(), countUsersByRole(), getPlatformMetrics()]),
     7_000,
     [emptyHealth, emptyRoles, emptyMetrics],
     "admin.overview",
@@ -85,8 +81,7 @@ export default async function AdminOverviewPage() {
 
   const openQueue = await listReviewQueue(profile.id);
 
-  const userTotal =
-    roleCounts.builder + roleCounts.reviewer + roleCounts.admin;
+  const userTotal = roleCounts.builder + roleCounts.reviewer + roleCounts.admin;
 
   return (
     <div className="mx-auto w-full max-w-5xl px-4 pt-12 pb-20 sm:px-6 lg:px-8">
@@ -110,23 +105,14 @@ export default async function AdminOverviewPage() {
       <section className="mt-10">
         <h2 className="text-lg font-semibold tracking-tight">Launch metrics</h2>
         <p className="mt-1 max-w-2xl font-mono text-[11px] text-muted-foreground">
-          MAU = signed-in users with activity in the last 30 days. First OSS via
-          Pull is deferred so this page cannot hang production.
+          MAU = signed-in users with activity in the last 30 days. First OSS via Pull is
+          deferred so this page cannot hang production.
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          <StatCard
-            label="Registered developers"
-            value={metrics.registeredUsers}
-          />
-          <StatCard
-            label="Monthly active users"
-            value={metrics.monthlyActiveUsers}
-          />
+          <StatCard label="Registered developers" value={metrics.registeredUsers} />
+          <StatCard label="Monthly active users" value={metrics.monthlyActiveUsers} />
           <StatCard label="Projects listed" value={metrics.projectsListed} />
-          <StatCard
-            label="First OSS via Pull"
-            value={metrics.firstOssViaPull}
-          />
+          <StatCard label="First OSS via Pull" value={metrics.firstOssViaPull} />
         </div>
       </section>
 
@@ -153,9 +139,7 @@ export default async function AdminOverviewPage() {
           </div>
         ) : (
           <div className="mt-6 space-y-3">
-            <h3 className="text-sm font-semibold tracking-tight">
-              Open submissions
-            </h3>
+            <h3 className="text-sm font-semibold tracking-tight">Open submissions</h3>
             {openQueue.map((item) => (
               <div
                 key={item.id}
@@ -189,8 +173,8 @@ export default async function AdminOverviewPage() {
           <div>
             <h2 className="text-lg font-semibold tracking-tight">Users</h2>
             <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-              builders {roleCounts.builder} · reviewers {roleCounts.reviewer} ·
-              admins {roleCounts.admin}
+              builders {roleCounts.builder} · reviewers {roleCounts.reviewer} · admins{" "}
+              {roleCounts.admin}
             </p>
           </div>
           <Button asChild variant="outline" size="sm">

@@ -31,11 +31,7 @@ function dismissBanner() {
 }
 
 export function BetaBanner() {
-  const visible = useSyncExternalStore(
-    subscribe,
-    getSnapshot,
-    getServerSnapshot,
-  );
+  const visible = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   if (!visible) {
     return null;

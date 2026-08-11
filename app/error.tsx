@@ -32,8 +32,8 @@ export default function Error({ error, reset }: ErrorPageProps) {
           Uncaught exception in the working tree
         </p>
         <p className="mt-3 max-w-xl text-base leading-snug tracking-[-0.01em] text-ink/75">
-          Something blew up while rendering this route. The failure was logged.
-          You can retry, or head back to safer ground.
+          Something blew up while rendering this route. The failure was logged. You can
+          retry, or head back to safer ground.
         </p>
 
         <div className="mt-8 overflow-hidden rounded-none border border-ink/20 bg-ink text-[var(--background)]">

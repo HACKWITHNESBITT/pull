@@ -1,23 +1,23 @@
 ---
 title: Routing
-description: 'Select routes using fee budgets, channel hints, and reliability scores.'
+description: "Select routes using fee budgets, channel hints, and reliability scores."
 difficulty: advanced
 duration: 6 days
 objectives:
   - Explain source-based routing at a high level
-  - 'Factor fees, CLTV, and capacity into route choice'
+  - "Factor fees, CLTV, and capacity into route choice"
   - Use explorers to build intuition for public graph structure
 resources:
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/08_routing_htlcs.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/08_routing_htlcs.asciidoc"
     kind: book
-    chapter: 'Ch. 8: Routing on the Lightning Network'
+    chapter: "Ch. 8: Routing on the Lightning Network"
     required: true
   - title: Amboss
-    url: 'https://amboss.space/'
+    url: "https://amboss.space/"
     kind: tool
   - title: LND Mission Control
-    url: 'https://docs.lightning.engineering/'
+    url: "https://docs.lightning.engineering/"
     kind: docs
 reflectionPrompts:
   - Explain Routing to a teammate without jargon — what problem does it solve?
@@ -35,6 +35,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 Lightning uses **source-based routing**: the payer (usually) constructs a path across the public graph plus hints, then onion-encrypts hop instructions.
 
 ## Why this matters
@@ -45,15 +46,19 @@ Routing success rates define UX. Fee-aware, reliability-aware pathfinding separa
 
 You plan a road trip with toll costs and bridge weight limits. If a bridge is “full” (insufficient balance), you detour, often without knowing the exact traffic until you try.
 
-<Mermaid caption="Build a path from gossip + hints, then send an onion." chart="flowchart LR
+<Mermaid
+  caption="Build a path from gossip + hints, then send an onion."
+  chart="flowchart LR
     Payer[Payer] --> G[Channel graph]
     G --> Path[Candidate path]
     Path --> Onion[Onion packet]
     Onion --> Hops[Hop1 Hop2 Hop3]
-    Hops --> Payee[Payee]" />
+    Hops --> Payee[Payee]"
+/>
 
 <Callout type="tip" title="Probe carefully">
-  Liquidity is not fully public. Nodes learn from failures (mission control style) without leaking customer details into logs carelessly.
+  Liquidity is not fully public. Nodes learn from failures (mission control style)
+  without leaking customer details into logs carelessly.
 </Callout>
 
 ## Common mistakes

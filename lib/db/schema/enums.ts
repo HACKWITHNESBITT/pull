@@ -34,11 +34,7 @@ export const submissionStatusEnum = pgEnum("submission_status", [
   "rejected",
 ]);
 
-export const userRoleEnum = pgEnum("user_role", [
-  "builder",
-  "reviewer",
-  "admin",
-]);
+export const userRoleEnum = pgEnum("user_role", ["builder", "reviewer", "admin"]);
 
 export const reviewEventTypeEnum = pgEnum("review_event_type", [
   "status_change",

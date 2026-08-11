@@ -1,10 +1,4 @@
-import {
-  count,
-  desc,
-  eq,
-  ilike,
-  or,
-} from "drizzle-orm";
+import { count, desc, eq, ilike, or } from "drizzle-orm";
 
 import { withTimeout } from "@/lib/async/with-timeout";
 import { getAllDiscoveryRepositories } from "@/lib/discovery/catalog";
@@ -50,11 +44,7 @@ export type UpdateUserRoleResult =
   | { ok: true; user: AdminUserRecord }
   | {
       ok: false;
-      reason:
-        | "database_unconfigured"
-        | "not_found"
-        | "last_admin"
-        | "self_demote";
+      reason: "database_unconfigured" | "not_found" | "last_admin" | "self_demote";
     };
 
 function mapAdminUser(row: typeof users.$inferSelect): AdminUserRecord {
@@ -178,9 +168,7 @@ export async function updateUserRole(input: {
   }
 
   if (input.role === "reviewer" || input.role === "admin") {
-    const { notifyRoleGrantedAsync } = await import(
-      "@/lib/notifications/dispatch"
-    );
+    const { notifyRoleGrantedAsync } = await import("@/lib/notifications/dispatch");
     notifyRoleGrantedAsync({
       userId: input.userId,
       role: input.role,
@@ -213,13 +201,15 @@ export async function getReviewHealth(): Promise<ReviewHealth> {
         const sql = getPostgresClient();
         const rows = await sql.begin(async (tx) => {
           await tx`SELECT set_config('statement_timeout', '3000', true)`;
-          return tx<{
-            submitted: number;
-            under_review: number;
-            needs_changes: number;
-            active_claims: number;
-            stuck_claims: number;
-          }[]>`
+          return tx<
+            {
+              submitted: number;
+              under_review: number;
+              needs_changes: number;
+              active_claims: number;
+              stuck_claims: number;
+            }[]
+          >`
             SELECT
               COUNT(*) FILTER (WHERE status = 'submitted')::int AS submitted,
               COUNT(*) FILTER (WHERE status = 'under_review')::int AS under_review,
@@ -314,9 +304,7 @@ export async function countFirstOssViaPull(): Promise<number> {
     return 0;
   }
 
-  const catalogRepos = getAllDiscoveryRepositories().map(
-    (repo) => repo.repository,
-  );
+  const catalogRepos = getAllDiscoveryRepositories().map((repo) => repo.repository);
   if (catalogRepos.length === 0) {
     return 0;
   }
@@ -369,9 +357,7 @@ export async function getPlatformMetrics(): Promise<PlatformMetrics> {
     return empty;
   }
 
-  const thirtyDaysAgo = new Date(
-    Date.now() - 30 * 24 * 60 * 60 * 1000,
-  ).toISOString();
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
 
   try {
     const counts = await withTimeout(

@@ -27,9 +27,7 @@ export async function getProjectSubmissionStateAction(projectSlug: string) {
   if (!user) {
     return {
       authenticated: false as const,
-      submissions: [] as Awaited<
-        ReturnType<typeof listUserSubmissionsForProject>
-      >,
+      submissions: [] as Awaited<ReturnType<typeof listUserSubmissionsForProject>>,
       active: null,
     };
   }
@@ -44,10 +42,7 @@ export async function getProjectSubmissionStateAction(projectSlug: string) {
   };
 }
 
-export async function saveProjectDraftAction(
-  projectSlug: string,
-  formData: FormData,
-) {
+export async function saveProjectDraftAction(projectSlug: string, formData: FormData) {
   const user = await getCurrentUser();
 
   if (!user) {
@@ -71,7 +66,11 @@ export async function saveProjectDraftAction(
   );
 
   if (!validation.ok) {
-    return { ok: false as const, reason: "validation" as const, error: validation.error };
+    return {
+      ok: false as const,
+      reason: "validation" as const,
+      error: validation.error,
+    };
   }
 
   const result = await saveDraftSubmission(user.id, projectSlug, {
@@ -100,10 +99,7 @@ export async function saveProjectDraftAction(
   return { ok: true as const, submission: result.submission };
 }
 
-export async function submitProjectAction(
-  projectSlug: string,
-  formData: FormData,
-) {
+export async function submitProjectAction(projectSlug: string, formData: FormData) {
   const user = await getCurrentUser();
 
   if (!user) {
@@ -127,7 +123,11 @@ export async function submitProjectAction(
   );
 
   if (!validation.ok) {
-    return { ok: false as const, reason: "validation" as const, error: validation.error };
+    return {
+      ok: false as const,
+      reason: "validation" as const,
+      error: validation.error,
+    };
   }
 
   const result = await submitProjectSubmission(user.id, projectSlug, {

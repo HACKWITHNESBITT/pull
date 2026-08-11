@@ -139,9 +139,8 @@ export function ProfileEditForm({ profile }: ProfileEditFormProps) {
       </div>
 
       <p className="text-xs text-muted-foreground">
-        Username and GitHub come from your Pull / GitHub account and can’t
-        be edited here. Public portfolio:{" "}
-        <span className="font-mono">/u/{profile.username}</span>
+        Username and GitHub come from your Pull / GitHub account and can’t be edited
+        here. Public portfolio: <span className="font-mono">/u/{profile.username}</span>
       </p>
 
       {error ? (

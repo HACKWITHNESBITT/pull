@@ -69,10 +69,7 @@ export const roadmapSections = pgTable(
       .defaultNow(),
   },
   (table) => [
-    uniqueIndex("roadmap_sections_roadmap_slug_idx").on(
-      table.roadmapId,
-      table.slug,
-    ),
+    uniqueIndex("roadmap_sections_roadmap_slug_idx").on(table.roadmapId, table.slug),
     index("roadmap_sections_roadmap_id_idx").on(table.roadmapId),
   ],
 );
@@ -238,10 +235,7 @@ export const projectSubmissions = pgTable(
     prUrl: text("pr_url"),
     liveDemoUrl: text("live_demo_url"),
     videoDemoUrl: text("video_demo_url"),
-    screenshotUrls: jsonb("screenshot_urls")
-      .$type<string[]>()
-      .notNull()
-      .default([]),
+    screenshotUrls: jsonb("screenshot_urls").$type<string[]>().notNull().default([]),
     notes: text("notes").notNull().default(""),
     submittedAt: timestamp("submitted_at", {
       withTimezone: true,
@@ -403,10 +397,7 @@ export const xpEvents = pgTable(
     sourceType: xpSourceTypeEnum("source_type").notNull(),
     sourceKey: text("source_key").notNull(),
     amount: integer("amount").notNull(),
-    metadata: jsonb("metadata")
-      .$type<Record<string, unknown>>()
-      .notNull()
-      .default({}),
+    metadata: jsonb("metadata").$type<Record<string, unknown>>().notNull().default({}),
     createdAt: timestamp("created_at", { withTimezone: true, mode: "string" })
       .notNull()
       .defaultNow(),

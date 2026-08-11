@@ -30,9 +30,7 @@ export default async function ReviewQueuePage() {
   }
 
   const ctx = await loadPeerReviewContext(profile.id, profile.role);
-  const allQueue = isDatabaseConfigured()
-    ? await listReviewQueue(profile.id)
-    : [];
+  const allQueue = isDatabaseConfigured() ? await listReviewQueue(profile.id) : [];
   const queue = ctx.isStaff
     ? allQueue
     : allQueue.filter((item) => item.userId !== profile.id);
@@ -54,9 +52,8 @@ export default async function ReviewQueuePage() {
       {!ctx.isStaff ? (
         <p className="mt-4 font-mono text-[11px] text-muted-foreground">
           Eligible if you completed the same project, or reputation ≥{" "}
-          {getReputationThreshold()} (yours: {ctx.reputation}). Your own
-          submissions do not appear here — check status on the project card or
-          submit page.
+          {getReputationThreshold()} (yours: {ctx.reputation}). Your own submissions do
+          not appear here — check status on the project card or submit page.
         </p>
       ) : (
         <p className="mt-4 font-mono text-[11px] text-muted-foreground">
@@ -125,15 +122,11 @@ export default async function ReviewQueuePage() {
                       {SUBMISSION_STATUS_LABELS[item.status]}
                     </Badge>
                     <Badge variant="outline">
-                      {(item.approvalCount ?? 0)}/{item.requiredApprovals ?? required}{" "}
+                      {item.approvalCount ?? 0}/{item.requiredApprovals ?? required}{" "}
                       approvals
                     </Badge>
-                    {claimed ? (
-                      <Badge variant="outline">claimed</Badge>
-                    ) : null}
-                    {!eligible ? (
-                      <Badge variant="outline">not eligible</Badge>
-                    ) : null}
+                    {claimed ? <Badge variant="outline">claimed</Badge> : null}
+                    {!eligible ? <Badge variant="outline">not eligible</Badge> : null}
                     {isOwn ? <Badge variant="outline">yours</Badge> : null}
                   </div>
                   <p className="font-mono text-[11px] text-muted-foreground">

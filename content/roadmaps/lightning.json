@@ -251,7 +251,11 @@
       "duration": "7 days",
       "difficulty": "advanced",
       "lockedUntil": ["ln-routing-failures"],
-      "resources": ["Congestion discussions", "Channel probing paper", "CVE disclosures"],
+      "resources": [
+        "Congestion discussions",
+        "Channel probing paper",
+        "CVE disclosures"
+      ],
       "position": { "x": 24, "y": 634 }
     },
     {
@@ -295,7 +299,11 @@
       "duration": "5 days",
       "difficulty": "advanced",
       "lockedUntil": ["ln-ldk"],
-      "resources": ["Watchtower Protocol", "LND Watchtower", "Mastering Lightning Security"],
+      "resources": [
+        "Watchtower Protocol",
+        "LND Watchtower",
+        "Mastering Lightning Security"
+      ],
       "position": { "x": 24, "y": 322 }
     },
     {

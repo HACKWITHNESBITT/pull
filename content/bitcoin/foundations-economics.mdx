@@ -1,6 +1,6 @@
 ---
 title: Bitcoin Economics
-description: 'Supply schedule, fee markets, mining incentives, and security assumptions.'
+description: "Supply schedule, fee markets, mining incentives, and security assumptions."
 difficulty: beginner
 duration: 4 days
 objectives:
@@ -9,16 +9,16 @@ objectives:
   - Connect miner incentives to network security
 resources:
   - title: Mastering Bitcoin
-    url: 'https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch01_intro.adoc'
+    url: "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch01_intro.adoc"
     kind: book
-    chapter: 'Ch. 1: Introduction'
+    chapter: "Ch. 1: Introduction"
     required: true
   - title: Mastering Bitcoin
-    url: 'https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch02_overview.adoc'
+    url: "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch02_overview.adoc"
     kind: book
-    chapter: 'Ch. 2: Overview'
-  - title: 'Bitcoin Optech: Transaction fees'
-    url: 'https://bitcoinops.org/en/topics/fee-bumping/'
+    chapter: "Ch. 2: Overview"
+  - title: "Bitcoin Optech: Transaction fees"
+    url: "https://bitcoinops.org/en/topics/fee-bumping/"
     kind: article
 reflectionPrompts:
   - >-
@@ -38,7 +38,8 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
-Bitcoin is software *and* an incentive system. If you only memorize data structures, you will still be surprised when fees spike, blocks fill, or miners orphan a chain tip. Economics explains the behavior.
+
+Bitcoin is software _and_ an incentive system. If you only memorize data structures, you will still be surprised when fees spike, blocks fill, or miners orphan a chain tip. Economics explains the behavior.
 
 ## Why this matters
 
@@ -52,11 +53,14 @@ Block space is like seats on a fixed-size bus that leaves every ~10 minutes. Whe
 
 New bitcoin enters circulation through the **block subsidy**. Approximately every 210,000 blocks (~4 years), the subsidy **halves**. Eventually the subsidy trends toward zero and security relies more on fees.
 
-<Mermaid caption="Users bid for inclusion; miners earn subsidy and fees; hashpower secures the ledger." chart="flowchart TD
+<Mermaid
+  caption="Users bid for inclusion; miners earn subsidy and fees; hashpower secures the ledger."
+  chart="flowchart TD
     Users[Users broadcast txs] --> Mempool[Mempool bids with fees]
     Mempool --> Miners[Miners select profitable txs]
     Miners --> Block[New block + subsidy + fees]
-    Block --> Security[Hashpower secures history]" />
+    Block --> Security[Hashpower secures history]"
+/>
 
 ## Fee markets
 
@@ -68,7 +72,9 @@ const satPerVb = feeSats / virtualSize;
 ```
 
 <Callout type="info" title="Security assumption">
-  Bitcoin’s security assumes that attacking the chain (for example, rewriting recent history) costs more than it is worth, primarily because honest mining is rewarded and hashpower is expensive. Fees and subsidy fund that hashpower.
+  Bitcoin’s security assumes that attacking the chain (for example, rewriting recent
+  history) costs more than it is worth, primarily because honest mining is rewarded and
+  hashpower is expensive. Fees and subsidy fund that hashpower.
 </Callout>
 
 ## What builders should design for

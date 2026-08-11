@@ -1,23 +1,23 @@
 ---
 title: Keys & Addresses
-description: 'Private keys, public keys, address encodings from P2PKH through Taproot.'
+description: "Private keys, public keys, address encodings from P2PKH through Taproot."
 difficulty: beginner
 duration: 5 days
 objectives:
   - Derive the mental model from private key to address
-  - 'Recognize legacy, SegWit, and Taproot address formats'
-  - 'Know which encoding standards apply (Base58, Bech32, Bech32m)'
+  - "Recognize legacy, SegWit, and Taproot address formats"
+  - "Know which encoding standards apply (Base58, Bech32, Bech32m)"
 resources:
   - title: Mastering Bitcoin
-    url: 'https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04_keys.adoc'
+    url: "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04_keys.adoc"
     kind: book
-    chapter: 'Ch. 4: Keys and Addresses'
+    chapter: "Ch. 4: Keys and Addresses"
     required: true
   - title: BIP-173 Bech32
-    url: 'https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki'
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki"
     kind: bip
   - title: BIP-350 Bech32m
-    url: 'https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki'
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0350.mediawiki"
     kind: bip
 reflectionPrompts:
   - >-
@@ -40,6 +40,7 @@ searchQueries:
   - BIP32
   - BIP39
 ---
+
 An address is not a bank account number stored in a central database. It is a compact encoding of a **locking condition**, usually “prove you control this public key.”
 
 ## Why this matters
@@ -66,26 +67,31 @@ Never type private keys into random websites. In apps, keep keys in secure modul
 
 ## Address families you will see
 
-| Type | Looks like | Notes |
-|------|------------|-------|
-| P2PKH | starts with `1` | Legacy Base58Check |
-| P2SH | starts with `3` | Script hash wrapper |
-| P2WPKH / P2WSH | `bc1q...` | SegWit v0 Bech32 |
-| P2TR | `bc1p...` | Taproot Bech32m |
+| Type           | Looks like      | Notes               |
+| -------------- | --------------- | ------------------- |
+| P2PKH          | starts with `1` | Legacy Base58Check  |
+| P2SH           | starts with `3` | Script hash wrapper |
+| P2WPKH / P2WSH | `bc1q...`       | SegWit v0 Bech32    |
+| P2TR           | `bc1p...`       | Taproot Bech32m     |
 
 Testnet/regtest use different HRPs (`tb1`, `bcrt1`, etc.). Always check the network.
 
-<Mermaid caption="Different output types encode different locking conditions." chart="flowchart TD
+<Mermaid
+  caption="Different output types encode different locking conditions."
+  chart="flowchart TD
     Priv[Private key] --> Pub[Public key]
     Pub --> P2PKH[P2PKH / P2WPKH]
     Pub --> P2TR[Taproot output key]
     Script[Script] --> P2SH[P2SH / P2WSH]
     P2PKH --> Addr[Address string]
     P2TR --> Addr
-    P2SH --> Addr" />
+    P2SH --> Addr"
+/>
 
 <Callout type="warning" title="Checksums are not enough">
-  Address checksums catch typos, but they do not stop you from sending to the wrong person or the wrong network. Confirm amount, asset, and destination out-of-band for large transfers.
+  Address checksums catch typos, but they do not stop you from sending to the wrong
+  person or the wrong network. Confirm amount, asset, and destination out-of-band for
+  large transfers.
 </Callout>
 
 ## Builder checklist

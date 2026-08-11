@@ -15,19 +15,19 @@ objectives:
   - Summarize UASF (BIP148) as a social-technical activation path
 resources:
   - title: Softfork wiki
-    url: 'https://en.bitcoin.it/wiki/Softfork'
+    url: "https://en.bitcoin.it/wiki/Softfork"
     kind: docs
     required: true
   - title: BIP-9 Version bits
-    url: 'https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki'
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki"
     kind: bip
     required: true
-  - title: 'Bitcoin Optech: Soft fork activation'
-    url: 'https://bitcoinops.org/en/topics/soft-fork-activation/'
+  - title: "Bitcoin Optech: Soft fork activation"
+    url: "https://bitcoinops.org/en/topics/soft-fork-activation/"
     kind: article
     required: true
-  - title: 'Forks, Signaling, and Activation'
-    url: 'https://medium.com/@elombrozo/forks-signaling-and-activation-d60b6abda49a'
+  - title: "Forks, Signaling, and Activation"
+    url: "https://medium.com/@elombrozo/forks-signaling-and-activation-d60b6abda49a"
     kind: article
 reflectionPrompts:
   - >-
@@ -72,7 +72,9 @@ Builders who ship Script, Taproot, or Lightning features need to know how consen
 Modern activations often use **version bits** (BIP9 family) or variants like **Speedy Trial**: miners set bits to signal readiness during a window; thresholds and timeouts decide lock-in.
 
 <Callout type="warning" title="Signaling ≠ consent of users">
-  Miner hashrate signaling is a coordination signal, not proof that users, exchanges, or economic nodes want the change. History (BIP148 UASF debates) shows social layers matter.
+  Miner hashrate signaling is a coordination signal, not proof that users, exchanges, or
+  economic nodes want the change. History (BIP148 UASF debates) shows social layers
+  matter.
 </Callout>
 
 ## Builder checklist

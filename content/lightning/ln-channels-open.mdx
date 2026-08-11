@@ -1,6 +1,6 @@
 ---
 title: Opening Channels
-description: 'Fund channels, configure policies, and monitor inbound capacity.'
+description: "Fund channels, configure policies, and monitor inbound capacity."
 difficulty: intermediate
 duration: 5 days
 objectives:
@@ -9,15 +9,15 @@ objectives:
   - Configure fees and understand inbound vs outbound capacity
 resources:
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/07_payment_channels.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/07_payment_channels.asciidoc"
     kind: book
-    chapter: 'Ch. 7: Payment Channels'
+    chapter: "Ch. 7: Payment Channels"
     required: true
   - title: BOLT2 Peer Protocol
-    url: 'https://github.com/lightning/bolts/blob/master/02-peer-protocol.md'
+    url: "https://github.com/lightning/bolts/blob/master/02-peer-protocol.md"
     kind: bolt
   - title: LND openchannel
-    url: 'https://docs.lightning.engineering/'
+    url: "https://docs.lightning.engineering/"
     kind: docs
 reflectionPrompts:
   - >-
@@ -39,6 +39,7 @@ lab:
 searchQueries:
   - BOLT2
 ---
+
 Opening a channel locks on-chain funds into a collaborative contract so you can send many off-chain payments later.
 
 ## Why this matters
@@ -51,7 +52,9 @@ Opening a channel is stocking a cash drawer between two cashiers. The total cash
 
 ## Open flow
 
-<Mermaid caption="Fund on-chain, wait for depth, then activate the channel." chart="sequenceDiagram
+<Mermaid
+  caption="Fund on-chain, wait for depth, then activate the channel."
+  chart="sequenceDiagram
     participant A as Node A
     participant B as Node B
     participant Chain as Bitcoin
@@ -60,7 +63,8 @@ Opening a channel is stocking a cash drawer between two cashiers. The total cash
     Chain->>A: confirmations
     Chain->>B: confirmations
     A->>B: channel_ready
-    Note over A,B: Off-chain updates begin" />
+    Note over A,B: Off-chain updates begin"
+/>
 
 ```bash
 # Illustrative LND-style flow
@@ -69,7 +73,8 @@ lncli openchannel <pubkey> <local_amt>
 ```
 
 <Callout type="tip" title="Confirmations matter">
-  Do not route large value on a channel that has not reached your configured confirmation depth.
+  Do not route large value on a channel that has not reached your configured
+  confirmation depth.
 </Callout>
 
 ## Inbound vs outbound

@@ -1,6 +1,6 @@
 ---
 title: LNURL
-description: 'Implement LNURL-withdraw, pay, and auth for better wallet UX.'
+description: "Implement LNURL-withdraw, pay, and auth for better wallet UX."
 difficulty: intermediate
 duration: 4 days
 objectives:
@@ -9,13 +9,13 @@ objectives:
   - Relate Lightning Addresses to LNURL-pay
 resources:
   - title: LNURL specifications
-    url: 'https://github.com/lnurl/luds'
+    url: "https://github.com/lnurl/luds"
     kind: docs
   - title: Lightning Address
-    url: 'https://lightningaddress.com/'
+    url: "https://lightningaddress.com/"
     kind: article
   - title: Alby documentation
-    url: 'https://guides.getalby.com/'
+    url: "https://guides.getalby.com/"
     kind: docs
 reflectionPrompts:
   - Explain LNURL to a teammate without jargon — what problem does it solve?
@@ -33,6 +33,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 **LNURL** is a family of bech32-encoded URLs that help wallets interact with services over HTTPS for pay, withdraw, auth, and more. **Lightning Addresses** (`name@domain`) typically resolve to LNURL-pay.
 
 ## Why this matters
@@ -45,14 +46,17 @@ LNURL is a short coat-check ticket that maps to a locker (HTTPS API) where the r
 
 ## Pay flow (simplified)
 
-<Mermaid caption="LNURL-pay mints a fresh BOLT11 through an HTTPS handshake." chart="sequenceDiagram
+<Mermaid
+  caption="LNURL-pay mints a fresh BOLT11 through an HTTPS handshake."
+  chart="sequenceDiagram
     participant W as Wallet
     participant S as Service
     W->>S: GET LNURL-pay endpoint
     S->>W: callback + metadata + limits
     W->>S: request invoice amount
     S->>W: BOLT11
-    W->>S: pay over Lightning" />
+    W->>S: pay over Lightning"
+/>
 
 ```typescript
 // Pseudo-flow
@@ -63,7 +67,8 @@ LNURL is a short coat-check ticket that maps to a locker (HTTPS API) where the r
 ```
 
 <Callout type="warning" title="You inherit web risks">
-  Phishing, TLS failures, and malicious metadata become Lightning UX risks. Validate domains and amounts carefully.
+  Phishing, TLS failures, and malicious metadata become Lightning UX risks. Validate
+  domains and amounts carefully.
 </Callout>
 
 ## Common mistakes

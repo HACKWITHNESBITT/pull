@@ -66,7 +66,11 @@ export function recommendIssues(
 
   for (const issue of issues) {
     if (dismissed.has(issue.id)) continue;
-    if (options.category && options.category !== "all" && issue.category !== options.category) {
+    if (
+      options.category &&
+      options.category !== "all" &&
+      issue.category !== options.category
+    ) {
       continue;
     }
 

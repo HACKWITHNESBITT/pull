@@ -83,9 +83,7 @@ export function PublicBuilderProfile({ data }: PublicBuilderProfileProps) {
             </Avatar>
 
             <div className="min-w-0 flex-1">
-              <p className="profile-eyebrow">
-                Builder // @{profile.username}
-              </p>
+              <p className="profile-eyebrow">Builder // @{profile.username}</p>
               <h1 className="profile-name">{profile.displayName}</h1>
               <p className="profile-handle">@{profile.username}</p>
               <p className="profile-tagline mt-2">
@@ -156,11 +154,7 @@ export function PublicBuilderProfile({ data }: PublicBuilderProfileProps) {
               className="w-full sm:w-auto"
             />
             <Button asChild className="w-full sm:w-auto">
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 GitHub
                 <ExternalLink className="size-3.5" aria-hidden />
               </a>
@@ -193,10 +187,7 @@ export function PublicBuilderProfile({ data }: PublicBuilderProfileProps) {
           profile
         />
 
-        <FeaturedRepositoriesSection
-          repositories={featuredRepositories}
-          profile
-        />
+        <FeaturedRepositoriesSection repositories={featuredRepositories} profile />
 
         <MergedPrHighlightsSection
           items={mergedPrHighlights}

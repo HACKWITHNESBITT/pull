@@ -24,14 +24,9 @@ export type BuilderProfile = {
 };
 
 /** Safe subset for anonymous public portfolio pages (no email / prefs). */
-export type PublicBuilderProfile = Omit<
-  BuilderProfile,
-  "email" | "emailNotifications"
->;
+export type PublicBuilderProfile = Omit<BuilderProfile, "email" | "emailNotifications">;
 
-export function toPublicBuilderProfile(
-  profile: BuilderProfile,
-): PublicBuilderProfile {
+export function toPublicBuilderProfile(profile: BuilderProfile): PublicBuilderProfile {
   return {
     id: profile.id,
     username: profile.username,

@@ -30,9 +30,7 @@ export default async function IssuesPage() {
     context.completedProjectSlugs.length > 0
       ? `${context.completedProjectSlugs.length} projects`
       : null,
-    context.languages.length > 0
-      ? context.languages.slice(0, 4).join(", ")
-      : null,
+    context.languages.length > 0 ? context.languages.slice(0, 4).join(", ") : null,
     context.githubActivityCount > 0
       ? `${context.githubActivityCount} synced events`
       : null,

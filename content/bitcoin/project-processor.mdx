@@ -1,6 +1,6 @@
 ---
 title: Payment Processor API
-description: 'Accept invoices, track confirmations, and handle payment webhooks.'
+description: "Accept invoices, track confirmations, and handle payment webhooks."
 difficulty: advanced
 duration: 2 weeks
 project: payment-processor
@@ -10,17 +10,17 @@ objectives:
   - Emit signed webhooks to merchants
 resources:
   - title: BIP-21 URI scheme
-    url: 'https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki'
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki"
     kind: bip
     required: true
-  - title: 'Bitcoin Optech: Payment tracking'
-    url: 'https://bitcoinops.org/'
+  - title: "Bitcoin Optech: Payment tracking"
+    url: "https://bitcoinops.org/"
     kind: article
   - title: Mastering Bitcoin
     url: >-
       https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch06_transactions.adoc
     kind: book
-    chapter: 'Ch. 6: Transactions'
+    chapter: "Ch. 6: Transactions"
 reflectionPrompts:
   - >-
     Explain Payment Processor API to a teammate without jargon — what problem
@@ -41,6 +41,7 @@ lab:
 searchQueries:
   - BIP21
 ---
+
 Merchants need idempotent invoices, confirmation policies, and reliable callbacks. This project is the on-chain cousin of a Lightning POS.
 
 ## Build challenge
@@ -52,7 +53,9 @@ API endpoints to:
 3. Register webhook URL
 4. Mark paid after N confirmations
 
-<Mermaid caption="Invoice creation, detection, confirmation, webhook." chart="sequenceDiagram
+<Mermaid
+  caption="Invoice creation, detection, confirmation, webhook."
+  chart="sequenceDiagram
     participant M as Merchant
     participant P as Processor
     participant N as Node
@@ -60,7 +63,8 @@ API endpoints to:
     P->>M: address + BIP21 URI
     N->>P: Detect payment
     P->>P: Wait confirmations
-    P->>M: Webhook paid" />
+    P->>M: Webhook paid"
+/>
 
 <Callout type="warning" title="Under/over payment">
   Define policy for wrong amounts and late payments. Document it in the API.

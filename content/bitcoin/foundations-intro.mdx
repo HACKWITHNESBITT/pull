@@ -6,21 +6,21 @@ description: >-
 difficulty: beginner
 duration: 3 days
 objectives:
-  - 'Install and verify Git, Node.js or Rust, and optional Docker'
+  - "Install and verify Git, Node.js or Rust, and optional Docker"
   - Understand the recommended Pull project layout
   - Confirm your local toolchain before moving to protocol lessons
 resources:
   - title: Git Documentation
-    url: 'https://git-scm.com/doc'
+    url: "https://git-scm.com/doc"
     kind: docs
   - title: Rust Toolchain
-    url: 'https://www.rust-lang.org/tools/install'
+    url: "https://www.rust-lang.org/tools/install"
     kind: docs
   - title: Node.js Downloads
-    url: 'https://nodejs.org/'
+    url: "https://nodejs.org/"
     kind: docs
   - title: Bitcoin Core releases
-    url: 'https://bitcoincore.org/en/download/'
+    url: "https://bitcoincore.org/en/download/"
     kind: tool
 reflectionPrompts:
   - >-
@@ -40,6 +40,7 @@ lab:
     - Confirm Docker or bitcoind availability (or note you will use Polar later)
     - One sentence on your chosen primary language for Bitcoin tooling
 ---
+
 Every Bitcoin builder needs a reliable local environment before touching protocol code. Think of this lesson as preparing a workshop: if your tools are missing or half-configured, every later lesson becomes frustrating noise.
 
 ## Why this matters
@@ -55,13 +56,14 @@ Setting up for Bitcoin development is like packing for a multi-day hike. You do 
 Most Pull lessons assume you can run a modern **JavaScript** or **Rust** toolchain. Pick one primary language for app code, but keep both runtimes available for ecosystem tooling.
 
 <Callout type="tip" title="Start on regtest">
-  Use **regtest** for day-to-day development. Mainnet and testnet are useful later, but regtest keeps feedback loops fast and free.
+  Use **regtest** for day-to-day development. Mainnet and testnet are useful later, but
+  regtest keeps feedback loops fast and free.
 </Callout>
 
 ### Required tools
 
 - Git
-- Node.js 20+ *or* Rust stable (ideally both)
+- Node.js 20+ _or_ Rust stable (ideally both)
 - Docker (optional, recommended for Bitcoin Core)
 - A code editor with TypeScript and MDX support
 
@@ -104,13 +106,16 @@ my-bitcoin-lab/
   tests/
 ```
 
-<Mermaid caption="Local toolchain feeds apps that talk to a private regtest node." chart="flowchart LR
+<Mermaid
+  caption="Local toolchain feeds apps that talk to a private regtest node."
+  chart="flowchart LR
     Dev[Your machine] --> Git[Git]
     Dev --> Lang[Node or Rust]
     Dev --> NodeSoft[Bitcoin Core / Docker]
     NodeSoft --> Regtest[Regtest chain]
     Lang --> Apps[Wallets and tools]
-    Apps --> Regtest" />
+    Apps --> Regtest"
+/>
 
 ## Common mistakes
 

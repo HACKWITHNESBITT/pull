@@ -1,6 +1,6 @@
 ---
 title: Onion Routing
-description: 'Sphinx packets, hop payloads, and payment privacy on Lightning.'
+description: "Sphinx packets, hop payloads, and payment privacy on Lightning."
 difficulty: advanced
 duration: 5 days
 objectives:
@@ -9,15 +9,15 @@ objectives:
   - Connect BOLT4 to real payment privacy expectations
 resources:
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/10_onion_routing.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/10_onion_routing.asciidoc"
     kind: book
-    chapter: 'Ch. 10: Onion Routing'
+    chapter: "Ch. 10: Onion Routing"
     required: true
   - title: BOLT4 Onion Routing
-    url: 'https://github.com/lightning/bolts/blob/master/04-onion-routing.md'
+    url: "https://github.com/lightning/bolts/blob/master/04-onion-routing.md"
     kind: bolt
   - title: Sphinx mix format (background)
-    url: 'https://www.cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf'
+    url: "https://www.cypherpunks.ca/~iang/pubs/Sphinx_Oakland09.pdf"
     kind: article
 reflectionPrompts:
   - >-
@@ -40,6 +40,7 @@ searchQueries:
   - BOLT4
   - onion routing
 ---
+
 Lightning payments travel in **onion packets**: each hop peels one layer, learns only the next peer and its instructions, then forwards.
 
 ## Why this matters
@@ -56,15 +57,19 @@ Nested envelopes. Each post office opens only its envelope, stamps the next addr
   caption="Each hop peels one layer; the full path stays hidden."
 />
 
-<Mermaid caption="Layered encryption limits per-hop knowledge." chart="flowchart LR
+<Mermaid
+  caption="Layered encryption limits per-hop knowledge."
+  chart="flowchart LR
     Outer[Outer layer for Hop1] --> H1[Hop1 peels]
     H1 --> Mid[Layer for Hop2]
     Mid --> H2[Hop2 peels]
     H2 --> Inner[Final payload]
-    Inner --> Payee[Payee]" />
+    Inner --> Payee[Payee]"
+/>
 
 <Callout type="info" title="Privacy is not absolute">
-  Amounts, timing, and graph structure can still leak information. Design threat models honestly.
+  Amounts, timing, and graph structure can still leak information. Design threat models
+  honestly.
 </Callout>
 
 ## Hop payloads

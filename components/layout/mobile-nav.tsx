@@ -9,11 +9,7 @@ import { signOut } from "@/app/actions/auth";
 import { SiteContainer } from "@/components/layout/site-container";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import {
-  accountNavSections,
-  isExternalHref,
-  primaryNav,
-} from "@/lib/site-config";
+import { accountNavSections, isExternalHref, primaryNav } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import type { BuilderProfile } from "@/types/user";
 
@@ -58,12 +54,7 @@ function NavSection({
   children: React.ReactNode;
 }) {
   return (
-    <section
-      className={cn(
-        "border border-border border-l-4",
-        sectionToneClass[tone],
-      )}
-    >
+    <section className={cn("border border-border border-l-4", sectionToneClass[tone])}>
       <p
         className={cn(
           "border-b border-border/70 px-3 py-2 font-mono text-[10px] font-medium tracking-[0.14em] uppercase",
@@ -219,9 +210,7 @@ export function MobileNav({
           {isAuthenticated ? (
             <div className="flex items-center gap-3 border border-border bg-card px-3 py-3">
               <Avatar className="size-10 shrink-0 rounded-none border border-border">
-                {avatarUrl ? (
-                  <AvatarImage src={avatarUrl} alt={displayName} />
-                ) : null}
+                {avatarUrl ? <AvatarImage src={avatarUrl} alt={displayName} /> : null}
                 <AvatarFallback className="rounded-none font-mono text-xs">
                   {initials}
                 </AvatarFallback>
@@ -298,19 +287,11 @@ export function MobileNav({
                     ))}
                     {section.title === "Workspace" ? (
                       <>
-                        <MobileLink
-                          href="/review"
-                          pathname={pathname}
-                          onClick={close}
-                        >
+                        <MobileLink href="/review" pathname={pathname} onClick={close}>
                           Review
                         </MobileLink>
                         {profile?.role === "admin" ? (
-                          <MobileLink
-                            href="/admin"
-                            pathname={pathname}
-                            onClick={close}
-                          >
+                          <MobileLink href="/admin" pathname={pathname} onClick={close}>
                             Admin
                           </MobileLink>
                         ) : null}

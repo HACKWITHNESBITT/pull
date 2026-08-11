@@ -31,8 +31,7 @@ export async function loadIssueRecommendationContext(
     completedProjectSlugs,
     languages: base.languages,
     level: base.level,
-    githubActivityCount:
-      activity.commits + activity.pullRequests + activity.issues,
+    githubActivityCount: activity.commits + activity.pullRequests + activity.issues,
     recommendedRepoIds,
   };
 }

@@ -17,7 +17,7 @@ resources:
       https://github.com/ElementsProject/lightning/blob/master/.github/CONTRIBUTING.md
     kind: docs
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook'
+    url: "https://github.com/lnbook/lnbook"
     kind: book
     chapter: Use as protocol companion while debugging
     required: true
@@ -39,9 +39,12 @@ lab:
     - Written approach / review checklist
     - Self-score against the meaningful-PR rubric
 ---
+
 Landing a Lightning PR requires local labs (bitcoind + peers), patience with CI, and precise reproduction notes.
 
-<Mermaid caption="Reproduce, test, PR, CI, iterate with reviewers." chart="sequenceDiagram
+<Mermaid
+  caption="Reproduce, test, PR, CI, iterate with reviewers."
+  chart="sequenceDiagram
     participant You
     participant CI
     participant Reviewer
@@ -49,7 +52,8 @@ Landing a Lightning PR requires local labs (bitcoind + peers), patience with CI,
     You->>CI: Open PR
     CI->>You: Results
     Reviewer->>You: Feedback
-    You->>CI: Update" />
+    You->>CI: Update"
+/>
 
 ## Next steps
 

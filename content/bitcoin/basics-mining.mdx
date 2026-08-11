@@ -1,6 +1,6 @@
 ---
 title: Mining & Consensus
-description: 'Proof-of-work, difficulty adjustment, and soft-fork activation for builders.'
+description: "Proof-of-work, difficulty adjustment, and soft-fork activation for builders."
 difficulty: intermediate
 duration: 5 days
 objectives:
@@ -9,15 +9,15 @@ objectives:
   - Describe soft-fork activation concepts builders encounter
 resources:
   - title: Mastering Bitcoin
-    url: 'https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch12_mining.adoc'
+    url: "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch12_mining.adoc"
     kind: book
-    chapter: 'Ch. 12: Mining'
+    chapter: "Ch. 12: Mining"
     required: true
   - title: BIP-9 Version bits
-    url: 'https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki'
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0009.mediawiki"
     kind: bip
-  - title: 'Bitcoin Optech: Soft fork activation'
-    url: 'https://bitcoinops.org/en/topics/soft-fork-activation/'
+  - title: "Bitcoin Optech: Soft fork activation"
+    url: "https://bitcoinops.org/en/topics/soft-fork-activation/"
     kind: article
 reflectionPrompts:
   - >-
@@ -39,6 +39,7 @@ lab:
 searchQueries:
   - BIP9
 ---
+
 **Mining** is the competitive process of finding a proof-of-work that makes a block header valid under current difficulty. Consensus rules define what blocks and transactions are valid; miners choose among valid templates.
 
 ## Why this matters
@@ -51,13 +52,16 @@ Difficulty is a treadmill that speeds up or slows down so that bags of work arri
 
 ## Proof-of-work loop
 
-<Mermaid caption="Miners search for a header hash below the target; winners earn rewards." chart="flowchart LR
+<Mermaid
+  caption="Miners search for a header hash below the target; winners earn rewards."
+  chart="flowchart LR
     Template[Block template] --> Hash[Hash header]
     Hash --> Check{Below target?}
     Check -->|no| Nonce[Change nonce / extranonce]
     Nonce --> Hash
     Check -->|yes| Win[Propagate block]
-    Win --> Reward[Subsidy + fees]" />
+    Win --> Reward[Subsidy + fees]"
+/>
 
 ## Difficulty adjustment
 
@@ -68,7 +72,8 @@ Approximately every 2016 blocks, difficulty adjusts based on recent timestamps t
 A **soft fork** tightens rules in a backward-compatible way. Activation methods (BIP-9 version bits, BIP-8 discussions, Speedy Trial historically) coordinate when new rules lock in. Builders should track whether their libraries and descriptors assume post-fork features (SegWit, Taproot).
 
 <Callout type="info" title="Nodes enforce rules">
-  Miners propose blocks; full nodes verify. Economic users running nodes ultimately decide which rules their software accepts.
+  Miners propose blocks; full nodes verify. Economic users running nodes ultimately
+  decide which rules their software accepts.
 </Callout>
 
 ## Common mistakes

@@ -4,20 +4,20 @@ description: Embed Lightning in applications using the Lightning Development Kit
 difficulty: advanced
 duration: 2 weeks
 objectives:
-  - 'Explain LDK as a library, not a standalone node binary'
-  - 'Identify what you must provide (chain source, persistence, networking)'
+  - "Explain LDK as a library, not a standalone node binary"
+  - "Identify what you must provide (chain source, persistence, networking)"
   - Sketch a mobile or server embedding architecture
 resources:
   - title: LDK documentation
-    url: 'https://lightningdevkit.org/'
+    url: "https://lightningdevkit.org/"
     kind: docs
   - title: LDK sample node
-    url: 'https://github.com/lightningdevkit'
+    url: "https://github.com/lightningdevkit"
     kind: docs
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/04_node_client.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/04_node_client.asciidoc"
     kind: book
-    chapter: 'Ch. 4: Lightning Node Software'
+    chapter: "Ch. 4: Lightning Node Software"
     required: true
 reflectionPrompts:
   - Explain LDK to a teammate without jargon — what problem does it solve?
@@ -35,6 +35,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 **LDK** (Lightning Development Kit) lets you embed Lightning protocol logic inside your app. You bring storage, networking, and chain monitoring.
 
 ## Why this matters
@@ -45,12 +46,15 @@ Mobile wallets and custom servers often cannot run a full LND/CLN sidecar. LDK i
 
 LND/CLN are assembled cars. LDK is an engine kit: powerful, but you still build the chassis, fuel system, and dashboard.
 
-<Mermaid caption="LDK requires you to supply persistence, networking, and chain data." chart="flowchart TD
+<Mermaid
+  caption="LDK requires you to supply persistence, networking, and chain data."
+  chart="flowchart TD
     App[Your application] --> LDK[LDK]
     LDK --> Persist[Your persistence]
     LDK --> Net[Your peer networking]
     LDK --> Chain[Your chain source]
-    Chain --> Bitcoin[Bitcoin node / electrum / esplora]" />
+    Chain --> Bitcoin[Bitcoin node / electrum / esplora]"
+/>
 
 <Callout type="warning" title="Persistence bugs lose funds">
   Channel state durability is sacred. Test crash recovery aggressively.

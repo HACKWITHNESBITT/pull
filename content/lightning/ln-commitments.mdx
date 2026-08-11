@@ -1,6 +1,6 @@
 ---
 title: Commitment Transactions
-description: 'Revocation keys, to_local/to_remote outputs, and penalty security.'
+description: "Revocation keys, to_local/to_remote outputs, and penalty security."
 difficulty: advanced
 duration: 6 days
 objectives:
@@ -9,15 +9,15 @@ objectives:
   - Relate anchors and modern fee bumping to force closes
 resources:
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/07_payment_channels.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/07_payment_channels.asciidoc"
     kind: book
-    chapter: 'Ch. 7: Payment Channels'
+    chapter: "Ch. 7: Payment Channels"
     required: true
   - title: BOLT3 Transactions
-    url: 'https://github.com/lightning/bolts/blob/master/03-transactions.md'
+    url: "https://github.com/lightning/bolts/blob/master/03-transactions.md"
     kind: bolt
-  - title: 'Bitcoin Optech: Anchor outputs'
-    url: 'https://bitcoinops.org/en/topics/anchor-outputs/'
+  - title: "Bitcoin Optech: Anchor outputs"
+    url: "https://bitcoinops.org/en/topics/anchor-outputs/"
     kind: article
 reflectionPrompts:
   - >-
@@ -39,6 +39,7 @@ lab:
 searchQueries:
   - BOLT3
 ---
+
 Each Lightning channel state is backed by a pair of **commitment transactions**, pre-signed on-chain settlements that either party can broadcast if cooperation fails.
 
 ## Why this matters
@@ -59,12 +60,15 @@ When state advances to `n`, state `n-1` is revoked. Publishing a revoked commitm
   caption="Old commitments are toxic, broadcasting them can forfeit the channel."
 />
 
-<Mermaid caption="Advance state, revoke previous, punish cheaters who publish old states." chart="flowchart TD
+<Mermaid
+  caption="Advance state, revoke previous, punish cheaters who publish old states."
+  chart="flowchart TD
     StateN[Commitment n] --> Coop[Cooperative updates]
     Coop --> StateN1[Commitment n+1]
     StateN1 --> Revoke[Revoke n secrets exchanged]
     BroadcastOld[Broadcast old n] --> Penalty[Peer justice tx]
-    Penalty --> Lost[Broadcaster loses funds]" />
+    Penalty --> Lost[Broadcaster loses funds]"
+/>
 
 <Callout type="danger" title="Always watch the chain">
   Offline nodes can miss revocation windows. Watchtowers exist for this failure mode.

@@ -1,6 +1,6 @@
 ---
 title: Bitcoin Libraries
-description: 'Use modern libraries for keys, addresses, and transaction construction.'
+description: "Use modern libraries for keys, addresses, and transaction construction."
 difficulty: intermediate
 duration: 6 days
 objectives:
@@ -9,13 +9,13 @@ objectives:
   - Avoid common footguns when wrapping consensus logic
 resources:
   - title: bitcoinjs-lib
-    url: 'https://github.com/bitcoinjs/bitcoinjs-lib'
+    url: "https://github.com/bitcoinjs/bitcoinjs-lib"
     kind: docs
   - title: rust-bitcoin
-    url: 'https://github.com/rust-bitcoin/rust-bitcoin'
+    url: "https://github.com/rust-bitcoin/rust-bitcoin"
     kind: docs
   - title: BDK documentation
-    url: 'https://bitcoindevkit.org/'
+    url: "https://bitcoindevkit.org/"
     kind: docs
 reflectionPrompts:
   - >-
@@ -35,6 +35,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 You should not hand-roll Base58, Bech32, or sighash code. Use maintained libraries that track consensus and address standards.
 
 ## Why this matters
@@ -47,19 +48,22 @@ Libraries are power tools with safety guards. You still need skill, but you shou
 
 ## Ecosystem map
 
-| Need | JavaScript | Rust |
-|------|------------|------|
-| Primitives | bitcoinjs-lib, @scure/btc-signer | rust-bitcoin |
-| Wallet engine | often custom + indexers | BDK |
-| secp256k1 | noble / bitcoin-secp... | secp256k1 / libsecp |
+| Need          | JavaScript                       | Rust                |
+| ------------- | -------------------------------- | ------------------- |
+| Primitives    | bitcoinjs-lib, @scure/btc-signer | rust-bitcoin        |
+| Wallet engine | often custom + indexers          | BDK                 |
+| secp256k1     | noble / bitcoin-secp...          | secp256k1 / libsecp |
 
-<Mermaid caption="Apps compose libraries for keys, tx building, and signing workflows." chart="flowchart TD
+<Mermaid
+  caption="Apps compose libraries for keys, tx building, and signing workflows."
+  chart="flowchart TD
     App[Your app] --> Lib[bitcoin library]
     Lib --> Keys[Keys / addresses]
     Lib --> Tx[Transaction builder]
     Lib --> Psbt[PSBT]
     Tx --> Node[Bitcoin Core / indexer]
-    Psbt --> HW[Hardware signer]" />
+    Psbt --> HW[Hardware signer]"
+/>
 
 ```bash
 # Rust example sketch
@@ -73,7 +77,8 @@ const network = bitcoin.networks.regtest;
 ```
 
 <Callout type="warning" title="Pin and audit upgrades">
-  Consensus-adjacent upgrades can change defaults. Pin versions, read release notes, and run vectors/tests before production deploys.
+  Consensus-adjacent upgrades can change defaults. Pin versions, read release notes, and
+  run vectors/tests before production deploys.
 </Callout>
 
 ## Common mistakes

@@ -7,23 +7,23 @@ difficulty: advanced
 duration: 5 days
 objectives:
   - Explain why Lightning needs an encrypted authenticated transport under BOLTs
-  - 'Describe Noise XK at a builder level (handshake goals, not crypto invention)'
+  - "Describe Noise XK at a builder level (handshake goals, not crypto invention)"
   - Relate transport security to node identity and operational OPSEC
 resources:
   - title: The Noise Protocol Framework
-    url: 'https://noiseprotocol.org/noise.html'
+    url: "https://noiseprotocol.org/noise.html"
     kind: docs
     required: true
   - title: Noise XK pattern
-    url: 'https://noiseexplorer.com/patterns/XK/'
+    url: "https://noiseexplorer.com/patterns/XK/"
     kind: docs
     required: true
   - title: BOLT
-    url: 'https://github.com/lightning/bolts/blob/master/08-transport.md'
+    url: "https://github.com/lightning/bolts/blob/master/08-transport.md"
     kind: bolt
     required: true
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook'
+    url: "https://github.com/lnbook/lnbook"
     kind: book
     chapter: Transport / peer connections
 reflectionPrompts:
@@ -66,7 +66,8 @@ Noise patterns compose Diffie–Hellman and symmetric crypto into documented han
 3. Separate clearnet exposure, Tor, and key backup OPSEC.
 
 <Callout type="warning" title="Encryption ≠ economic security">
-  Transport secrecy does not stop channel probing, fee griefing, or offline breach risk. It is one layer in the onion of LN security.
+  Transport secrecy does not stop channel probing, fee griefing, or offline breach risk.
+  It is one layer in the onion of LN security.
 </Callout>
 
 ## Common mistakes

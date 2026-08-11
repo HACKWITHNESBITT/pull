@@ -1,6 +1,6 @@
 ---
 title: Contribution Discovery
-description: 'Find beginner-friendly issues across LND, CLN, and LDK repositories.'
+description: "Find beginner-friendly issues across LND, CLN, and LDK repositories."
 difficulty: intermediate
 duration: 5 days
 objectives:
@@ -9,13 +9,13 @@ objectives:
   - Engage maintainers with a clear plan
 resources:
   - title: lightningnetwork/lnd
-    url: 'https://github.com/lightningnetwork/lnd'
+    url: "https://github.com/lightningnetwork/lnd"
     kind: docs
   - title: ElementsProject/lightning
-    url: 'https://github.com/ElementsProject/lightning'
+    url: "https://github.com/ElementsProject/lightning"
     kind: docs
   - title: lightningdevkit
-    url: 'https://github.com/lightningdevkit'
+    url: "https://github.com/lightningdevkit"
     kind: docs
 reflectionPrompts:
   - >-
@@ -35,13 +35,17 @@ lab:
     - Written approach / review checklist
     - Self-score against the meaningful-PR rubric
 ---
+
 Lightning OSS spans Go, C, Rust, and many app repos. Pick a lane that matches your stack.
 
-<Mermaid caption="Match language skills to repos, then scope an issue." chart="flowchart TD
+<Mermaid
+  caption="Match language skills to repos, then scope an issue."
+  chart="flowchart TD
     Skills[Go / C / Rust / TS] --> Repo[Pick implementation]
     Repo --> Issues[Label scan]
     Issues --> Plan[Write approach]
-    Plan --> PR[Contribute]" />
+    Plan --> PR[Contribute]"
+/>
 
 <Callout type="tip" title="Docs & examples">
   Improving docs or sample apps is a high-leverage first PR.

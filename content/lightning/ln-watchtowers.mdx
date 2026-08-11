@@ -9,15 +9,15 @@ objectives:
   - Configure or integrate a tower in a lab
 resources:
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook/blob/master/16_security.asciidoc'
+    url: "https://github.com/lnbook/lnbook/blob/master/16_security.asciidoc"
     kind: book
-    chapter: 'Ch. 16: Security and Privacy'
+    chapter: "Ch. 16: Security and Privacy"
     required: true
   - title: LND watchtower
-    url: 'https://docs.lightning.engineering/'
+    url: "https://docs.lightning.engineering/"
     kind: docs
-  - title: 'Bitcoin Optech: Watchtowers'
-    url: 'https://bitcoinops.org/en/topics/watchtowers/'
+  - title: "Bitcoin Optech: Watchtowers"
+    url: "https://bitcoinops.org/en/topics/watchtowers/"
     kind: article
 reflectionPrompts:
   - >-
@@ -37,6 +37,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 A **watchtower** monitors the blockchain for revoked commitment broadcasts on your behalf and can publish justice transactions if you are offline.
 
 ## Why this matters
@@ -47,14 +48,17 @@ Phones sleep. Laptops close. Lightning’s penalty model needs someone watching.
 
 A neighborhood security camera that only unlocks the evidence locker if a specific break-in pattern appears, and it does so without learning your daily life.
 
-<Mermaid caption="Towers watch for breaches and act when you cannot." chart="sequenceDiagram
+<Mermaid
+  caption="Towers watch for breaches and act when you cannot."
+  chart="sequenceDiagram
     participant W as Wallet
     participant T as Watchtower
     participant Chain as Bitcoin
     W->>T: Session + encrypted blobs
     Chain->>T: Detect revoked commit
     T->>Chain: Publish justice tx
-    T->>W: Later notify" />
+    T->>W: Later notify"
+/>
 
 <Callout type="info" title="Trust tradeoffs">
   Towers learn some metadata. Design privacy expectations; consider multiple towers.

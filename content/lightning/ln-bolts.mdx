@@ -9,15 +9,15 @@ objectives:
   - Know where to follow spec discussions
 resources:
   - title: Lightning BOLTs
-    url: 'https://github.com/lightning/bolts'
+    url: "https://github.com/lightning/bolts"
     kind: bolt
     required: true
   - title: Mastering the Lightning Network
-    url: 'https://github.com/lnbook/lnbook'
+    url: "https://github.com/lnbook/lnbook"
     kind: book
-    chapter: 'Spec references throughout, keep BOLTs open while reading'
+    chapter: "Spec references throughout, keep BOLTs open while reading"
   - title: Lightning RFC discussions
-    url: 'https://github.com/lightning/bolts/pulls'
+    url: "https://github.com/lightning/bolts/pulls"
     kind: docs
 reflectionPrompts:
   - >-
@@ -40,6 +40,7 @@ searchQueries:
   - BOLT
   - Lightning Network
 ---
+
 **BOLTs** (Basis of Lightning Technology) are the interoperability specs for Lightning. LND, Core Lightning, and LDK aim to speak the same protocol so heterogeneous nodes can route.
 
 ## Why this matters
@@ -52,26 +53,30 @@ BOLTs are the electrical code for Lightning. Different manufacturers (LND/CLN/LD
 
 ## Map of essentials
 
-| BOLT | Focus |
-|------|--------|
-| 1 | Peer protocol foundation |
-| 2 | Channel management / HTLCs |
-| 3 | Transactions |
-| 4 | Onion routing |
-| 7 | Gossip |
-| 11 | Invoices |
-| 12 | Offers (evolving) |
+| BOLT | Focus                      |
+| ---- | -------------------------- |
+| 1    | Peer protocol foundation   |
+| 2    | Channel management / HTLCs |
+| 3    | Transactions               |
+| 4    | Onion routing              |
+| 7    | Gossip                     |
+| 11   | Invoices                   |
+| 12   | Offers (evolving)          |
 
-<Mermaid caption="Multiple implementations converge on BOLTs for network compatibility." chart="flowchart TD
+<Mermaid
+  caption="Multiple implementations converge on BOLTs for network compatibility."
+  chart="flowchart TD
     Bolts[BOLTs specs] --> LND[LND]
     Bolts --> CLN[Core Lightning]
     Bolts --> LDK[LDK]
     LND --> Net[Interoperable network]
     CLN --> Net
-    LDK --> Net" />
+    LDK --> Net"
+/>
 
 <Callout type="tip" title="Read with a question">
-  Do not read BOLTs cover-to-cover first. Open the BOLT that matches your bug (invoice decode, channel open, onion) and keep Mastering Lightning nearby for narrative.
+  Do not read BOLTs cover-to-cover first. Open the BOLT that matches your bug (invoice
+  decode, channel open, onion) and keep Mastering Lightning nearby for narrative.
 </Callout>
 
 ## Common mistakes

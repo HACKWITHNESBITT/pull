@@ -9,15 +9,15 @@ objectives:
   - Know that interactive funding flows are implementation-sensitive
 resources:
   - title: Dual funding discussions
-    url: 'https://github.com/lightning/bolts'
+    url: "https://github.com/lightning/bolts"
     kind: bolt
     note: Follow dual-funding / interactive funding proposals in BOLTs PRs.
     required: true
   - title: Core Lightning splicing
-    url: 'https://docs.corelightning.org/'
+    url: "https://docs.corelightning.org/"
     kind: docs
-  - title: 'Bitcoin Optech: Splicing'
-    url: 'https://bitcoinops.org/en/topics/splicing/'
+  - title: "Bitcoin Optech: Splicing"
+    url: "https://bitcoinops.org/en/topics/splicing/"
     kind: article
 reflectionPrompts:
   - >-
@@ -37,6 +37,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 Classic channels are often single-funded. **Dual funding** lets both sides contribute at open. **Splicing** adjusts channel capacity later with an on-chain transaction without losing the channel relationship.
 
 ## Why this matters
@@ -47,14 +48,18 @@ Liquidity needs change. Closing and reopening wastes fees and downtime. Splicing
 
 Dual funding is both roommates paying the security deposit. Splicing is adding money to the joint jar (or withdrawing some) without ending the lease.
 
-<Mermaid caption="Interactive on-chain transactions reshape channel capacity." chart="flowchart LR
+<Mermaid
+  caption="Interactive on-chain transactions reshape channel capacity."
+  chart="flowchart LR
     Chan[Existing channel] --> Splice[Splice tx on-chain]
     Splice --> More[More capacity]
     Splice --> Less[Less capacity]
-    Dual[Dual-funded open] --> Chan2[Balanced initial capacity]" />
+    Dual[Dual-funded open] --> Chan2[Balanced initial capacity]"
+/>
 
 <Callout type="info" title="Feature availability">
-  Support differs across LND/CLN/LDK versions. Prototype on regtest with the stack you ship.
+  Support differs across LND/CLN/LDK versions. Prototype on regtest with the stack you
+  ship.
 </Callout>
 
 ## Common mistakes

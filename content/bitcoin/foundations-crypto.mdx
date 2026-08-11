@@ -1,6 +1,6 @@
 ---
 title: Cryptography Primer
-description: 'Hashes, key pairs, ECDSA, and Schnorr signatures in a Bitcoin context.'
+description: "Hashes, key pairs, ECDSA, and Schnorr signatures in a Bitcoin context."
 difficulty: beginner
 duration: 5 days
 objectives:
@@ -9,37 +9,37 @@ objectives:
   - Contrast ECDSA and Schnorr at a builder level
 resources:
   - title: Mastering Bitcoin
-    url: 'https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04_keys.adoc'
+    url: "https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch04_keys.adoc"
     kind: book
-    chapter: 'Ch. 4: Keys and Addresses'
-    note: 'Start with private keys, public keys, and address encodings.'
+    chapter: "Ch. 4: Keys and Addresses"
+    note: "Start with private keys, public keys, and address encodings."
     required: true
   - title: Mastering Bitcoin
     url: >-
       https://github.com/bitcoinbook/bitcoinbook/blob/develop/ch08_signatures.adoc
     kind: book
-    chapter: 'Ch. 8: Signatures'
+    chapter: "Ch. 8: Signatures"
     note: Read ECDSA vs Schnorr sections.
     required: true
-  - title: 'Decoding Bitcoin: Hash functions'
-    url: 'https://bitcoindevs.xyz/decoding/hash-functions'
+  - title: "Decoding Bitcoin: Hash functions"
+    url: "https://bitcoindevs.xyz/decoding/hash-functions"
     kind: interactive
     note: Interactive hash playground — pair with the SHA-256 visualizer.
     required: true
-  - title: 'BDP: SHA-256 hashes visualizer'
-    url: 'https://hashexplained.com'
+  - title: "BDP: SHA-256 hashes visualizer"
+    url: "https://hashexplained.com"
     kind: interactive
     note: Step through SHA-256 rounds visually (Hash Explained).
-  - title: 'Decoding Bitcoin: Schnorr signatures'
-    url: 'https://bitcoindevs.xyz/decoding/schnorr-signature'
+  - title: "Decoding Bitcoin: Schnorr signatures"
+    url: "https://bitcoindevs.xyz/decoding/schnorr-signature"
     kind: interactive
     note: Builder-level Schnorr before BIP-340.
-  - title: 'Decoding Bitcoin: Nonce reuse attack'
-    url: 'https://bitcoindevs.xyz/decoding/nonce-reuse-attack'
+  - title: "Decoding Bitcoin: Nonce reuse attack"
+    url: "https://bitcoindevs.xyz/decoding/nonce-reuse-attack"
     kind: interactive
     note: Why ECDSA nonce reuse is catastrophic — matches a reflection prompt.
   - title: BIP-340 Schnorr
-    url: 'https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki'
+    url: "https://github.com/bitcoin/bips/blob/master/bip-0340.mediawiki"
     kind: bip
     required: true
 reflectionPrompts:
@@ -67,6 +67,7 @@ searchQueries:
   - BIP340
   - Schnorr
 ---
+
 Bitcoin does not “store passwords on the blockchain.” Ownership is proven with **cryptography**: one-way hashes and signatures that anyone can verify, but only the key holder can create.
 
 ## Why this matters
@@ -95,7 +96,9 @@ function commitsTo(data: Uint8Array, digest: Hash256): boolean {
 
 ## Keys and signatures
 
-<Mermaid caption="Signing uses the private key; verification uses the public key and message." chart="flowchart LR
+<Mermaid
+  caption="Signing uses the private key; verification uses the public key and message."
+  chart="flowchart LR
     Priv[Private key] --> Pub[Public key]
     Msg[Message / tx sighash] --> Sign[Sign with private key]
     Priv --> Sign
@@ -103,19 +106,22 @@ function commitsTo(data: Uint8Array, digest: Hash256): boolean {
     Pub --> Verify[Verify]
     Msg --> Verify
     Sig --> Verify
-    Verify --> OK[Valid or invalid]" />
+    Verify --> OK[Valid or invalid]"
+/>
 
 Bitcoin historically used **ECDSA** on the secp256k1 curve. **Taproot** prefers **Schnorr** signatures (BIP-340): smaller, linear (friendly to aggregation), and cleaner security proofs.
 
 <Callout type="warning" title="Never invent crypto">
-  Do not roll your own key derivation, RNG, or signature code. Use battle-tested libraries (`secp256k1`, `bitcoinjs-lib`, `rust-bitcoin`, BDK). A one-line RNG mistake can leak keys.
+  Do not roll your own key derivation, RNG, or signature code. Use battle-tested
+  libraries (`secp256k1`, `bitcoinjs-lib`, `rust-bitcoin`, BDK). A one-line RNG mistake
+  can leak keys.
 </Callout>
 
 ## What builders must remember
 
 1. Private keys are secrets, treat them like cash and passwords combined.
-2. Public keys and addresses are safe to share for *receiving*.
-3. Signatures authorize *specific* messages (transaction sighashes), not blank checks.
+2. Public keys and addresses are safe to share for _receiving_.
+3. Signatures authorize _specific_ messages (transaction sighashes), not blank checks.
 4. Hash collisions are astronomically unlikely for SHA-256 in practice; treat digests as unique IDs.
 
 ## Common mistakes

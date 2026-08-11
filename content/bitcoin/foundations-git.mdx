@@ -1,6 +1,6 @@
 ---
 title: Git & Open Source Workflow
-description: 'Learn branching, pull requests, and how maintainers review contributions.'
+description: "Learn branching, pull requests, and how maintainers review contributions."
 difficulty: beginner
 duration: 4 days
 objectives:
@@ -9,13 +9,13 @@ objectives:
   - Understand ACK / NACK culture in Bitcoin projects
 resources:
   - title: GitHub Flow
-    url: 'https://docs.github.com/en/get-started/using-github/github-flow'
+    url: "https://docs.github.com/en/get-started/using-github/github-flow"
     kind: docs
   - title: Conventional Commits
-    url: 'https://www.conventionalcommits.org/'
+    url: "https://www.conventionalcommits.org/"
     kind: article
   - title: Bitcoin Core contributing
-    url: 'https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md'
+    url: "https://github.com/bitcoin/bitcoin/blob/master/CONTRIBUTING.md"
     kind: docs
 reflectionPrompts:
   - >-
@@ -37,6 +37,7 @@ lab:
     - One sentence on what you observed vs expected
     - Link to the required reading section you used
 ---
+
 Open source Bitcoin work is collaboration under a microscope. Your code is not “done” when it runs on your laptop, it is done when reviewers can understand, test, and trust it.
 
 ## Why this matters
@@ -49,13 +50,16 @@ A pull request is like a work order on a job site: what changed, why it is safe,
 
 ## The daily loop
 
-<Mermaid caption="Most contributions follow a short cycle from branch to reviewed merge." chart="flowchart LR
+<Mermaid
+  caption="Most contributions follow a short cycle from branch to reviewed merge."
+  chart="flowchart LR
     Issue[Issue or idea] --> Branch[Feature branch]
     Branch --> Commits[Small commits]
     Commits --> PR[Pull request]
     PR --> Review[Review + tests]
     Review --> Merge[Merge]
-    Review --> Revise[Address feedback]" />
+    Review --> Revise[Address feedback]"
+/>
 
 ### Branching
 
@@ -71,7 +75,7 @@ Keep branches focused: one bug, one feature, or one docs improvement.
 
 ### Commits that help reviewers
 
-Prefer messages that explain *why*:
+Prefer messages that explain _why_:
 
 - Good: `wallet: avoid double-counting change in balance`
 - Weak: `fix stuff`
@@ -87,7 +91,9 @@ A strong PR description answers:
 3. What should reviewers watch for?
 
 <Callout type="info" title="ACK / NACK">
-  In Bitcoin Core and related projects, reviewers often write **ACK** (I support this after review) or **NACK** (I object, with reasons). Silence is not approval. Expect technical pushback, it is normal.
+  In Bitcoin Core and related projects, reviewers often write **ACK** (I support this
+  after review) or **NACK** (I object, with reasons). Silence is not approval. Expect
+  technical pushback, it is normal.
 </Callout>
 
 ## Common mistakes

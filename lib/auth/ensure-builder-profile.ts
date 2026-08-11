@@ -87,14 +87,11 @@ export async function ensureBuilderProfile(user: User): Promise<BuilderProfile |
       existing.role,
     );
 
-    const existingEmail =
-      typeof existing.email === "string" ? existing.email : null;
+    const existingEmail = typeof existing.email === "string" ? existing.email : null;
     const shouldUpdateRole = nextRole !== (existing.role ?? "builder");
     const shouldSyncEmail = Boolean(email) && email !== existingEmail;
     const lastActiveRaw =
-      typeof existing.last_active_at === "string"
-        ? existing.last_active_at
-        : null;
+      typeof existing.last_active_at === "string" ? existing.last_active_at : null;
     const shouldTouch = shouldTouchActivity(lastActiveRaw);
 
     if (shouldUpdateRole || shouldSyncEmail || shouldTouch) {

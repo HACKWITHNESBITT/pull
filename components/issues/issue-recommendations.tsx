@@ -142,9 +142,7 @@ export function IssueRecommendations({ context }: IssueRecommendationsProps) {
           groups.map((group) => (
             <section key={group.category} className="space-y-4">
               <div className="flex items-end justify-between gap-3">
-                <h2 className="text-lg font-semibold tracking-tight">
-                  {group.label}
-                </h2>
+                <h2 className="text-lg font-semibold tracking-tight">{group.label}</h2>
                 <span className="text-xs text-muted-foreground">
                   {group.items.length}
                 </span>
@@ -152,10 +150,7 @@ export function IssueRecommendations({ context }: IssueRecommendationsProps) {
               <ul className="grid gap-4 md:grid-cols-2">
                 {group.items.map((item, index) => (
                   <li key={item.issue.id}>
-                    <IssueRecommendationCard
-                      recommendation={item}
-                      index={index}
-                    />
+                    <IssueRecommendationCard recommendation={item} index={index} />
                   </li>
                 ))}
               </ul>
